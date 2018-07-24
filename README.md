@@ -88,7 +88,7 @@
 11.HVALS 获得hash的所有值
 ```
 
-###sorted sets命令组
+### sorted sets命令组
 ```
 1.ZADD key score member [score member...] 添加到有序set的一个或多个成员
 2.ZCARD key 获取一个排序集合中的成员的数量
