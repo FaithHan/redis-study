@@ -11,7 +11,7 @@
 
 
 #### keys命令组
-```$xslt
+```text
 1.DEL key[key ...] 删除指定的key(一个或多个)
 2.DUMP key 导出key的值
 3.EXISTS key[key ...] 查询一个key是否存在
@@ -27,7 +27,7 @@
 
 
 ### strings命令组
-```
+```text
 1.APPEND key value  追加一个值到key上(若key不存在，则创建)
 2.DECR key 整数原子减1（若值不为整数，则报错）
 3.DECRBY key decrement  原子减指定的整数
@@ -46,7 +46,7 @@
 
 
 ### list命令组
-```$xslt
+```text
 
 1.BLPOP key [key ...] timeout 删除并获得列表中的第一个元素，或阻塞，直到有一个可用
 2.BRPOP key [key ...] timeout 删除并获得列表中的第一个元素，或阻塞，直到有一个可用
@@ -63,7 +63,7 @@
 ```
 
 ### set命令组
-```$xslt
+```text
 1.SADD key mumber[mumber...] 添加一个或多个集合到集合当中
 2.SCARD key 获取集合里面的元素数量
 3.SMEMBERS key 获取集合里面的所有元素
@@ -73,7 +73,7 @@
 
 
 ### hash命令组
-```$xslt
+```text
 
 1.HDEL key field[field...] 删除一个或多个hash的field
 2.HEXISTS key field 判断field是否存在于hash中
@@ -89,7 +89,7 @@
 ```
 
 ### sorted sets命令组
-```
+```text
 1.ZADD key score member [score member...] 添加到有序set的一个或多个成员
 2.ZCARD key 获取一个排序集合中的成员的数量
 3.ZCOUNT key min max 返回分数范围内的所有成员数量
