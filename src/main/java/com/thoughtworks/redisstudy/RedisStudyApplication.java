@@ -8,7 +8,6 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
@@ -32,7 +31,15 @@ public class RedisStudyApplication {
         ListOperations<String, String> opsForList = stringRedisTemplate.opsForList();
         String hanfei = opsForList.leftPop("hanfei", 10, TimeUnit.SECONDS);
         System.out.println("hehe");
-        return hanfei;
+        return "SUCCESS";
+    }
+
+
+    @RequestMapping("/msg")
+    public String msg(String msg) {
+        stringRedisTemplate.convertAndSend("hanfei", msg);
+        stringRedisTemplate.convertAndSend("wangfei", msg);
+        return msg;
     }
 
 }
