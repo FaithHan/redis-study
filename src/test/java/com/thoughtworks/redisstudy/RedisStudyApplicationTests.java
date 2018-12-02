@@ -6,9 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.redis.core.ListOperations;
-import org.springframework.data.redis.core.RedisOperations;
-import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.*;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -42,7 +40,7 @@ public class RedisStudyApplicationTests {
         ListOperations<String, String> opsForList = stringRedisTemplate.opsForList();
         stringRedisTemplate.delete("hanfei");
         List<String> list = new ArrayList<>();
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 9000; i++) {
             list.add(String.valueOf(i) + "韩斐");
         }
         opsForList.rightPushAll("hanfei", list);
@@ -64,8 +62,21 @@ public class RedisStudyApplicationTests {
         System.out.println(1);
     }
 
+    @Test
+    public void redisTransaction() throws Exception {
 
+    }
 
+    private Object object = new Object();
 
+    public void threadTest() {
+        synchronized (object) {
+            System.out.println(Thread.holdsLock(this));
+        }
+    }
+
+    public static void main(String[] args) {
+        new RedisStudyApplicationTests().threadTest();
+    }
 
 }
